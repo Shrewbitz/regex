@@ -1,0 +1,95 @@
+abcdefghijklmnopqrstuvwxyz
+ABCDEFGHIJKLMNOPQRSTUVWXYZ 
+1234567890
+
+MetaCharacters (need tp be escaped):
+.[{()\^$|?*+
+
+s.w.gieseker@gmail.com
+
+\. selects period
+
+s\.w\.gieseker@gmail\.com
+
+matches
+##############################################################################
+
+.   -Any Character except new line (new line is a hidden character)
+\d  -Digit (0-9)
+\D  -Not a Digit (0-9) everything but digits  
+\w  -word character (a-z, A-Z, 0-9, _)
+\W  -opposite (not word)
+\s  -whitespace (space, tab, newline)
+\S  -opposite aka not whitespace 
+
+
+    anchors (match positions before or after characters)
+##############################################################################
+
+\b  -word boundry Ha HaHa    \bHA bHA\ has to be start/end of a word
+\B  -opposite 
+^   -start of string
+$   -end of string
+
+    character set 
+    matches how a char
+[]
+[89]00[-.]\d\d\d[-.]\d\d\d\d
+[3-5]
+[a-zA-Z0-9]
+[^a-z] matches opposite of expression [^h]at
+
+734 434 2660
+843-215-2433
+800-215-2433
+
+    quantifier
+##############################################################################
+    how many matches to match
+
+*       -0 or more
++       -1 or more
+?       -0 or one
+{3}     -exact number
+{3,4}   -range of numbers (min, max)
+
+\d{3}[-.]\d{3}[-.]\d{4} (saves time to get phone num)
+734 434 2660
+
+Mr\.?\s[A-Z]\w* this gets all the mr
+Mr. Schafer
+Mr Smith
+Ms Davis
+Mrs. Robinson
+Mr. T
+
+    groups (makes is easy to get mr and mrs)
+##############################################################################
+M(r|s|rs)\.?\s[A-Z]\w* 
+
+https://www.google.com
+http://sammyg.com
+https://youtube.com
+https://www.nasa.gov
+
+https?://(www\.)?\w+\.\w+ gets whole site
+https?://(www\.)?\(w+)(\.\w+)        gets name and domain
+            1       2   3       whole = 0
+USE BACKREFERENCE TO GET CAPTURED GROUP
+$1 or \1
+
+$2$3 = google.com
+
+
+    practice
+##############################################################################
+    billybob@gmail.com
+    s.w.gieseker@gmail.com
+    swxg@umich.edu
+    420blazeit69@hotmail.net
+
+    (dash - should go last or first)
+    [a-zA-Z0-9_+.-]+@[a-zA-Z-]+\.(com|edu|net)
+
+    (practice reading and writing) 
+    when reading paste in to searcher and use example

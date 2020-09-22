@@ -90,6 +90,58 @@ $2$3 = google.com
 
     (dash - should go last or first)
     [a-zA-Z0-9_+.-]+@[a-zA-Z-]+\.(com|edu|net)
+    [a-zA-Z0-9_+.-]+@[a-zA-Z-]+\.[a-zA-Z0-9-.]+
 
     (practice reading and writing) 
     when reading paste in to searcher and use example
+
+
+    explain regex
+    resources 
+        https://regexr.com/
+        https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Regular_Expressions
+    what is it?
+        A regular expression is a sequence of characters that define a search pattern. Usually such patterns are 
+        used by string-searching algorithms for "find" or "find and replace" operations on strings, or for input validation. 
+    why use it?
+        can put in config files so you dont have to recompile
+
+        if (str.equals("DooWahDiddy")) // No problemo.
+
+        if (str.contains("destroy the earth")) // Okay.
+
+        if (str.indexOf(";") < str.length / 2) // Not bad.
+        Once your conditions contain multiple predicates, then you've started inventing your own ad hoc string validation language, and you should probably just man up and study some regular expressions.
+
+        if (str.startsWith("I") && str.endsWith("Widget") && (!str.contains("Monkey") || !str.contains("Pox")))  // Madness.
+
+
+    when to use it?
+
+        best use case is to find and replace in language agnostic way
+
+            checks validity of creditcard
+        ^(?:4[0-9]{12}(?:[0-9]{3})?          # Visa
+        |  (?:5[1-5][0-9]{2}                # MasterCard
+        | 222[1-9]|22[3-9][0-9]|2[3-6][0-9]{2}|27[01][0-9]|2720)[0-9]{12}
+        |  3[47][0-9]{13}                   # American Express
+        |  3(?:0[0-5]|[68][0-9])[0-9]{11}   # Diners Club
+        |  6(?:011|5[0-9]{2})[0-9]{12}      # Discover
+        |  (?:2131|1800|35\d{3})\d{11}      # JCB
+        )$
+
+        find and replace all creditcards in a doc and change to redacted
+
+        find all phone numbers
+
+        want to learn more words that end in -tion
+
+        match a password 
+
+            ^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).{6,12}$
+
+            6 to 12 characters in length
+            Must have at least one uppercase letter
+            Must have at least one lower case letter
+            Must have at least one digit
+            Should contain other characters
